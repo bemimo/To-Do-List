@@ -20,7 +20,7 @@ const database = module.export = () =>{
     useUnifiedTopology: true,
   }
   try{
-    mongoose.connect("mongodb+srv://mimo:Z7OS6khMkG5suD6b@cluster0.h92lk4g.mongodb.net/mongodb?retryWrites=true&w=majority")
+    mongoose.connect("mongodb+srv://mimo:PW@cluster0.h92lk4g.mongodb.net/mongodb?retryWrites=true&w=majority")
     console.log("Connection to MongoDB was successfully established");
   }catch (error){
     console.log("Error no connection to DB")
