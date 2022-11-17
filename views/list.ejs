@@ -1,0 +1,34 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+
+    <!-- Loop durch welche die item Listen erstellt werden ==> 
+    Anzahl der newListItem hängt von Loop ab.   -->
+
+    <% newListItems.forEach(function(item){ %>
+
+      <!-- Wenn wir wollen das nach dem klicken der Checkbox etwas passiert, 
+      brauchen wir eine <form> und eine app.post  -->
+
+      <form action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+        <p><%=item.name%></p>
+      </div>
+      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+    </form>
+    <% })%>
+
+      <!-- Input name="newItem" wird in app.js entweder in auf die Work oder normale Liste gepushed -->
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+  </div>
+
+<%- include("footer") -%>
